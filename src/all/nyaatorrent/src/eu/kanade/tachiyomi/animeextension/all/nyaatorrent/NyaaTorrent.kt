@@ -58,7 +58,8 @@ class NyaaTorrent(extName: String, private val extURL: String, private val extId
         val anime = SAnime.create()
         anime.setUrlWithoutDomain(element.select("td:nth-child(2) a").attr("href"))
         anime.title = element.select("td:nth-child(2) a:not(.comments)").attr("title")
-        // anime.thumbnail_url = "$baseUrl/" + element.select("td:nth-child(1) img").attr("src")
+        val imagePath = element.select("td:nth-child(1) img").attr("src")
+        anime.thumbnail_url = "https://github.com/rockisch/aniyomi-extensions/blob/nyaa-image$imagePath"
         return anime
     }
 
